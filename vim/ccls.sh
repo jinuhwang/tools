@@ -1,4 +1,4 @@
-sudo apt install zlib1g-dev libncurses-dev
+apt install zlib1g-dev libncurses-dev
 git clone --depth=1 --recursive https://github.com/MaskRay/ccls
 cd ccls
 

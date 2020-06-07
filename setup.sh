@@ -1,15 +1,19 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
+# TODO: Link binaries, install fzf
 if [ -d ~/bin ]; then
     mkdir ~/bin
 fi
 
+# To upgrade Vim
+add-apt-repository ppa:jonathonf/vim -y
+
 # Install packages
-add-apt-repository ppa:jonathonf/vim
-apt update && apt install -y \
+apt update && apt install -y --upgrade \
     build-essential \
     zsh \
-    tmux
+    tmux \
+    vim
 
 # Download Oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
@@ -19,6 +23,7 @@ cp $DIR/dotfiles/zshrc $HOME/.zshrc
 cp $DIR/dotfiles/vimrc $HOME/.vimrc
 cp $DIR/dotfiles/tmux.conf $HOME/.tmux.conf
 cp $DIR/dotfiles/gitconfig $HOME/.gitconfig
+cp $DIR/dotfiles/p10k.zsh $HOME/.p10k.zsh
 
 # Install Node for coc.nvim
 curl -sL install-node.now.sh/lts | bash
@@ -30,4 +35,5 @@ vim +PlugInstall +qall
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # Install ccls for coc.nvim
-sh $DIR/vim/ccls.sh
+cd $DIR
+./vim/ccls.sh
