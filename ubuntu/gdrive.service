@@ -1,0 +1,18 @@
+[Unit]
+Description=Google Drive
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=notify
+Environment=RCLONE_CONFIG=/opt/rclone/rclone.conf
+
+ExecStart=/usr/bin/rclone mount gdrive-cache: /home/jinu/gdrive \
+    --log-level INFO
+ExecStop=/bin/fusermount -uz /home/jinu/gdrive
+Restart=on-failure
+User=jinu
+Group=jinu
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,3 @@
+# option -DCMAKE_PREFIX_PATH=/path/to/lib should guide find_XXX functions to appropriate directory
+# Following should do the trick
+list(APPEND CMAKE_PREFIX_PATH "/path/to/lib")

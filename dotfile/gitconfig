@@ -1,0 +1,18 @@
+[core]
+	editor = vim
+[user]
+	email = jwhwang@casys.kaist.ac.kr
+	name = Jinwoo Hwang
+[alias]
+	sla = log --oneline --decorate --graph --all
+	als = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'
+	glog = log -E -i --grep
+	car = commit --amend --no-edit
+	unstage = reset
+	uncommit = reset --soft HEAD^
+	cm = commit
+	co = checkout
+[alais]
+	glog = log -E -i --grep
+[credential]
+	helper = store
