@@ -11,6 +11,7 @@ add-apt-repository ppa:jonathonf/vim -y
 # Install packages
 apt update && apt install -y --upgrade \
     build-essential \
+    cmake \
     zsh \
     tmux \
     vim
@@ -26,7 +27,7 @@ cp $DIR/dotfiles/gitconfig $HOME/.gitconfig
 cp $DIR/dotfiles/p10k.zsh $HOME/.p10k.zsh
 
 # Install Node for coc.nvim
-curl -sL install-node.now.sh/lts | bash
+curl -sL install-node.now.sh/lts | bash -s --
 
 # Install Vim Plugin
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
