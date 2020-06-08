@@ -1,7 +1,7 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # TODO: Link binaries, install fzf
-if [ -d ~/bin ]; then
+if [ ! -d ~/bin ]; then
     mkdir ~/bin
 fi
 
@@ -27,7 +27,7 @@ cp $DIR/dotfiles/gitconfig $HOME/.gitconfig
 cp $DIR/dotfiles/p10k.zsh $HOME/.p10k.zsh
 
 # Install Node for coc.nvim
-curl -sL install-node.now.sh/lts | bash -s --
+curl -sL install-node.now.sh/lts | bash -s -- -y
 
 # Install Vim Plugin
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

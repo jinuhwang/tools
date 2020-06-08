@@ -117,4 +117,6 @@ function to-windows {
 alias venv="source ./venv/bin/activate"
 alias g="git"
 
+export PATH=$HOME/bin:$PATH
+
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
