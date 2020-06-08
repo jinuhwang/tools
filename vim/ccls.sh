@@ -8,3 +8,4 @@ cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=$PWD/clang+ll
 cmake --build Release
 cp Release/ccls $HOME/bin/ccls
 # https://github.com/MaskRay/ccls/wiki/coc.nvim
+cp ../dotfiles/coc-settings.json ~/.vim/coc-settings.json
