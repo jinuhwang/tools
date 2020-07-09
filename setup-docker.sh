@@ -8,10 +8,10 @@ if [ ! -d ~/bin ]; then
 fi
 
 # To upgrade Vim
-sudo add-apt-repository ppa:jonathonf/vim -y
+add-apt-repository ppa:jonathonf/vim -y
 
 # Install packages
-sudo apt update && apt install -y --upgrade \
+apt update && apt install -y --upgrade \
     build-essential \
     cmake \
     zsh \
@@ -22,13 +22,14 @@ sudo apt update && apt install -y --upgrade \
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 
 # Copy dotfiles (Symbolic links are stale in the docker image, extract it to startup script later)
-ln -s -f $DIR/dotfiles/zshrc $HOME/.zshrc
-ln -s -f $DIR/dotfiles/vimrc $HOME/.vimrc
-ln -s -f $DIR/dotfiles/tmux.conf $HOME/.tmux.conf
-ln -s -f $DIR/dotfiles/gitconfig $HOME/.gitconfig
+cp $DIR/dotfiles/zshrc $HOME/.zshrc
+cp $DIR/dotfiles/vimrc $HOME/.vimrc
+cp $DIR/dotfiles/tmux.conf $HOME/.tmux.conf
+cp $DIR/dotfiles/gitconfig $HOME/.gitconfig
+cp $DIR/dotfiles/p10k.zsh $HOME/.p10k.zsh
 
 # Install Node for coc.nvim
-# curl -sL install-node.now.sh/lts | bash -s -- -y
+curl -sL install-node.now.sh/lts | bash -s -- -y
 
 # Install Vim Plugin
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -37,13 +38,9 @@ vim +PlugInstall +qall
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # Install ccls for coc.nvim
-# cd $DIR
-# ./vim/ccls.sh
+cd $DIR
+./vim/ccls.sh
 
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 yes | ~/.fzf/install
-
-chsh --shell /usr/bin/zsh
-zsh
-
