@@ -400,7 +400,7 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'tpope/vim-commentary'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -470,8 +470,8 @@ set shortmess+=c
 if has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one
   set signcolumn=number
-else
-  set signcolumn=yes
+" else
+"   set signcolumn=yes
 endif
 
 " Use tab for trigger completion with characters ahead and navigate.
