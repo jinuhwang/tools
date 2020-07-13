@@ -13,9 +13,10 @@ add-apt-repository ppa:jonathonf/vim -y
 # Install packages
 apt update && apt install -y --upgrade \
     build-essential \
-    cmake \
+    wget \
     zsh \
     tmux \
+    tree \
     vim
 
 # Download Oh-my-zsh
@@ -39,6 +40,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~
 
 # Install ccls for coc.nvim
 cd $DIR
+./cmake/install-cmake.sh
 ./vim/ccls.sh
 
 # Install fzf

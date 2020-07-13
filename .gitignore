@@ -3,3 +3,4 @@
 *.zip
 ccls/
 **/__pycache__/
+cmake-*/
