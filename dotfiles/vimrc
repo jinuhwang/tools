@@ -403,6 +403,8 @@ Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'wellle/context.vim'
+
 
 " Plug 'dense-analysis/ale'
 
@@ -597,5 +599,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-set tags=./tags,tags;
-
+set tags=./tags;/
+let g:context_enabled = 1
+set foldmethod=manual
