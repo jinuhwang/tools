@@ -11,7 +11,7 @@ fi
 sudo add-apt-repository ppa:jonathonf/vim -y
 
 # Install packages
-sudo apt update && apt install -y --upgrade \
+sudo apt update && sudo apt install -y --upgrade \
     build-essential \
     cmake \
     zsh \
@@ -26,9 +26,11 @@ ln -s -f $DIR/dotfiles/zshrc $HOME/.zshrc
 ln -s -f $DIR/dotfiles/vimrc $HOME/.vimrc
 ln -s -f $DIR/dotfiles/tmux.conf $HOME/.tmux.conf
 ln -s -f $DIR/dotfiles/gitconfig $HOME/.gitconfig
+ln -s -f $DIR/dotfiles/nvmrc $HOME/.nvmrc
 
 # Install Node for coc.nvim
 # curl -sL install-node.now.sh/lts | bash -s -- -y
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 
 # Install Vim Plugin
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
