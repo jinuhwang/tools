@@ -404,6 +404,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'wellle/context.vim'
+Plug 'rust-lang/rust.vim'
 
 
 " Plug 'dense-analysis/ale'
