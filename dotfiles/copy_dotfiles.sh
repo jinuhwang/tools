@@ -7,5 +7,6 @@ cp $DIR/vimrc $HOME/.vimrc
 cp $DIR/tmux.conf $HOME/.tmux.conf
 cp $DIR/gitconfig $HOME/.gitconfig
 cp $DIR/p10k.zsh $HOME/.p10k.zsh
+cp $DIR/nvmrc $HOME/.nvmrc
 
 vim +PlugInstall +qall

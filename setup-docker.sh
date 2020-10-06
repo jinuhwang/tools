@@ -7,9 +7,6 @@ if [ ! -d ~/bin ]; then
     mkdir ~/bin
 fi
 
-# To upgrade Vim
-add-apt-repository ppa:jonathonf/vim -y
-
 # Install packages
 apt update && apt install -y --upgrade \
     build-essential \
@@ -17,13 +14,22 @@ apt update && apt install -y --upgrade \
     zsh \
     tmux \
     tree \
+    vim \
+    curl \
+    software-properties-common
+
+# To upgrade Vim
+add-apt-repository ppa:jonathonf/vim -y
+# Install packages
+apt update && apt install -y --upgrade \
     vim
+
 
 # Download Oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 
 # Install Node for coc.nvim
-curl -sL install-node.now.sh/lts | bash -s -- -y
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 
 # Install Vim Plugin
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
