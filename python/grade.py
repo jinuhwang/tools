@@ -23,26 +23,32 @@ def _compare_answer(given, answer):
         return False
 
 
-def compare_answer(index, given, answer):
+def compare_answer(index, given, answer, interactive=True):
     print('Question', index)
     if _compare_answer(given, answer):
         print('Correct')
-        return True
+        return True, False
     print('='*8)
     print('answer:', answer)
     print('submitted answer:', given)
-    if input('correct? (o/x):') == 'o':
-        return True
+    while interactive:
+        key = input('correct? (o/x/q):')
+        if key == 'o':
+            return True, False
+        if key == 'x':
+            return False, False
+        if key == 'q':
+            return True, True
 
-    return False
+    return False, False
 
 
 # In[3]:
 
 
-delimiters = [('(', ')')]
+delimiters = [('(', ')'), ('', '.')]
 
-def grade(number, debug=False):
+def grade(number, debug=False, interactive=True):
     sub = submission[number]
     ans = answer[number]
     line_iter = iter(sub.split('\n'))
@@ -53,8 +59,11 @@ def grade(number, debug=False):
         while line is not None:
             for delimiter in delimiters:
                 if delimiter[0]+index+delimiter[1] in line:
-                    submitted_answer = line[line.find(')')+1:].strip()
-                    result.append(compare_answer(index, submitted_answer, ans[index]))
+                    submitted_answer = line[line.find(delimiter[1])+1:].strip()
+                    ret, quit = compare_answer(index, submitted_answer, ans[index], interactive)
+                    if quit:
+                        return []
+                    result.append(ret)
                     found = True
                     break
 
@@ -79,7 +88,10 @@ from submissions import submission, answer
 
 
 for num in submission.keys():
-    result = grade(num)
+    if num == 1:
+        result = grade(num, interactive=False)
+    else:
+        result = grade(num)
     print('='*10)
     print('Question', num, 'result')
     print('='*10)
