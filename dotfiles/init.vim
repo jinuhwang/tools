@@ -45,9 +45,6 @@ set autoread
 " like <leader>w saves the current file
 let mapleader = ","
 
-" Fast saving
-nmap <leader>w :w!<cr>
-
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
@@ -83,7 +80,7 @@ set ruler
 set cmdheight=2
 
 " A buffer becomes hidden when it is abandoned
-set hidden
+" set hidden
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -209,9 +206,6 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Disable highlight when <leader><cr> is pressed
-map <silent> <leader><cr> :noh<cr>
-
 " Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -262,10 +256,10 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " => Status line
 """"""""""""""""""""""""""""""
 " Always show the status line
-set laststatus=2
+" set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -275,10 +269,10 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 " map 0 ^
 
 " Move a line of text using ALT+[jk] or Command+[jk] on mac
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+" nmap <M-j> mz:m+<cr>`z
+" nmap <M-k> mz:m-2<cr>`z
+" vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
+" vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 if has("mac") || has("macunix")
   nmap <D-j> <M-j>
@@ -296,7 +290,7 @@ fun! CleanExtraSpaces()
     call setreg('/', old_query)
 endfun
 
-if has("autocmd")
+if has("automd")
     autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
 
@@ -402,16 +396,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'wellle/context.vim'
 Plug 'rust-lang/rust.vim'
-Plug 'SirVer/ultisnips'
-
-
+" Plug 'SirVer/ultisnips'
 " Plug 'dense-analysis/ale'
 
 call plug#end()            " required
-
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
 
 " Disable bufferline since it is on integrated with airline
 let g:bufferline_echo = 0
@@ -619,4 +607,4 @@ set foldmethod=manual
 " imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 " Use <leader>x for convert visual selected code to snippet
-xmap <leader>x  <Plug>(coc-convert-snippet)
+" xmap <leader>x  <Plug>(coc-convert-snippet)

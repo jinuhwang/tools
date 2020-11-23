@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # TODO: Link binaries, install fzf
@@ -8,7 +10,7 @@ if [ ! -d ~/bin ]; then
 fi
 
 # To upgrade Vim
-sudo add-apt-repository ppa:jonathonf/vim -y
+# sudo add-apt-repository ppa:jonathonf/vim -y
 
 # Install packages
 sudo apt update && sudo apt install -y --upgrade \
@@ -21,19 +23,23 @@ sudo apt update && sudo apt install -y --upgrade \
 # Download Oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 
-
-# Install Node for coc.nvim
+# Install Node
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm install 'lts/*'
+nvm use 'lts/*'
+
+# Install neovim
+./vim/install-neovim.sh
 
 # Install Vim Plugin
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ./dotfiles/link_dotfiles.sh
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
-
-# Install ccls for coc.nvim
-# cd $DIR
-# ./vim/ccls.sh
 
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
