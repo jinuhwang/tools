@@ -15,10 +15,13 @@ fi
 # Install packages
 sudo apt update && sudo apt install -y --upgrade \
     build-essential \
-    cmake \
+    wget \
     zsh \
     tmux \
-    vim
+    tree \
+    vim \
+    curl \
+    software-properties-common
 
 # Download Oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
@@ -35,8 +38,6 @@ nvm use 'lts/*'
 ./vim/install-neovim.sh
 
 # Install Vim Plugin
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ./dotfiles/link_dotfiles.sh
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k

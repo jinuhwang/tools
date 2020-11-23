@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # TODO: Link binaries, install fzf
@@ -18,29 +20,23 @@ apt update && apt install -y --upgrade \
     curl \
     software-properties-common
 
-# To upgrade Vim
-add-apt-repository ppa:jonathonf/vim -y
-# Install packages
-apt update && apt install -y --upgrade \
-    vim
-
 
 # Download Oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 
-# Install Node for coc.nvim
+# Install Node
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm install 'lts/*'
+nvm use 'lts/*'
 
-# Install Vim Plugin
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# Install neovim
+./vim/install-neovim.sh
+
 ./dotfiles/copy_dotfiles.sh
-
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
-
-# Install ccls for coc.nvim
-cd $DIR
-./cmake/install-cmake.sh
-./vim/ccls.sh
 
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf

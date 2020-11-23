@@ -9,4 +9,15 @@ cp $DIR/gitconfig $HOME/.gitconfig
 cp $DIR/p10k.zsh $HOME/.p10k.zsh
 cp $DIR/nvmrc $HOME/.nvmrc
 
-vim +PlugInstall +qall
+if [ ! -d "$HOME/.config/nvim" ]
+then
+    mkdir -p $HOME/.config/nvim
+fi
+
+cp $DIR/init.vim $HOME/.config/nvim/init.vim
+cp $DIR/coc-settings.json $HOME/.config/nvim/coc-settings.json
+cp $DIR/alacritty.yml $HOME/.alacritty.yml
+
+nvim +PlugInstall +qall
+nvim '+CocInstall -sync coc-marketplace coc-clangd coc-snippets' +qall
+nvim '+CocCommand -sync clangd.install' +qall
