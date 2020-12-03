@@ -43,11 +43,15 @@ set autoread
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = ","
+nnoremap <space> <Nop>
+let mapleader=" "
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
+try
 command W w !sudo tee % > /dev/null
+catch
+endtry
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -139,10 +143,6 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
-try
-    colorscheme desert
-catch
-endtry
 
 set background=dark
 
@@ -382,6 +382,22 @@ filetype off                  " required
 
 call plug#begin('~/.vim/plugged')
 
+let g:firenvim_config = {
+    \ 'globalSettings': {
+        \ 'alt': 'all',
+    \  },
+    \ 'localSettings': {
+        \ '.*': {
+            \ 'cmdline': 'neovim',
+            \ 'priority': 0,
+            \ 'selector': 'textarea',
+            \ 'takeover': 'always',
+        \ },
+    \ }
+\ }
+let fc = g:firenvim_config['localSettings']
+let fc['https://.*gmail.com.*'] = { 'takeover': 'never', 'priority': 1 }
+
 Plug 'tpope/vim-fugitive'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
@@ -396,10 +412,83 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'wellle/context.vim'
 Plug 'rust-lang/rust.vim'
+" Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
+
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+Plug 'vuciv/vim-bujo'
+Plug 'stsewd/fzf-checkout.vim'
+
+" Seems to be the color scheme
+Plug 'colepeters/spacemacs-theme.vim'
+Plug 'sainnhe/gruvbox-material'
+Plug 'phanviet/vim-monokai-pro'
+Plug 'flazz/vim-colorschemes'
+Plug 'chriskempson/base16-vim'
+
+" Install telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+
+
 " Plug 'SirVer/ultisnips'
 " Plug 'dense-analysis/ale'
 
 call plug#end()            " required
+
+let g:theprimeagen_colorscheme = "gruvbox"
+fun! ColorMyPencils()
+    colorscheme ayu
+    set background=dark
+
+    let g:gruvbox_contrast_dark = 'hard'
+    if exists('+termguicolors')
+        let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+        let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    endif
+    let g:gruvbox_invert_selection='0'
+
+    highlight ColorColumn ctermbg=0 guibg=grey
+    highlight Normal guibg=none
+    " highlight LineNr guifg=#ff8659
+    " highlight LineNr guifg=#aed75f
+    highlight LineNr guifg=#5eacd3
+    highlight netrwDir guifg=#5eacd3
+    highlight qfFileName guifg=#aed75f
+endfun
+call ColorMyPencils()
+
+" --- vim go (polyglot) settings.
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_format_strings = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_auto_sameids = 1
+
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS='--reverse'
+
+nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
+nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
+
+
+
+
+" try
+"     colorscheme gruvbox
+" catch
+" endtry
 
 " Disable bufferline since it is on integrated with airline
 let g:bufferline_echo = 0

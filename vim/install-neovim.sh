@@ -1,8 +1,10 @@
 #!/bin/bash
 
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt-get update
-sudo apt-get install neovim
+sudo apt update
+sudo apt install snapd
+sudo snap install --edge nvim --classic
+sudo ln -s -f /snap/bin/nvim /usr/bin/nvim 
+
 
 if [ ! -d "$HOME/.config/nvim" ]
     mkdir -p $HOME/.config/nvim
