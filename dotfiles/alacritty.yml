@@ -27,8 +27,8 @@ window:
   # must be at least `2`, while using a value of `0` for columns and lines will
   # fall back to the window manager's recommended size.
   #dimensions:
-  columns: 200
-  lines: 100
+  columns: 500
+  lines: 300
 
   # Window position (changes require restart)
   #
@@ -58,7 +58,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  decorations: buttonless
+  # decorations: buttonless
 
   # Startup Mode (changes require restart)
   #
@@ -147,7 +147,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 20.0
+  size: 13.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -172,21 +172,65 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
-# Colors (Tomorrow Night)
-#colors:
+colors:
   # Default colors
-  #primary:
-  #  background: '#1d1f21'
-  #  foreground: '#c5c8c6'
+  primary:
+    # hard contrast: background = '#f9f5d7'
+    background: '#fbf1c7'
+    # soft contrast: background = '#f2e5bc'
+    foreground: '#3c3836'
 
-    # Bright and dim foreground colors
-    #
-    # The dimmed foreground color is calculated automatically if it is not
-    # present. If the bright foreground color is not set, or
-    # `draw_bold_text_with_bright_colors` is `false`, the normal foreground
-    # color will be used.
-    #dim_foreground: '#828482'
-    #bright_foreground: '#eaeaea'
+  # Normal colors
+  normal:
+    black:   '#fbf1c7'
+    red:     '#cc241d'
+    green:   '#98971a'
+    yellow:  '#d79921'
+    blue:    '#458588'
+    magenta: '#b16286'
+    cyan:    '#689d6a'
+    white:   '#7c6f64'
+
+  # Bright colors
+  bright:
+    black:   '#928374'
+    red:     '#9d0006'
+    green:   '#79740e'
+    yellow:  '#b57614'
+    blue:    '#076678'
+    magenta: '#8f3f71'
+    cyan:    '#427b58'
+    white:   '#3c3836'
+# Colors (Gruvbox dark)
+colors:
+  # Default colors
+  primary:
+    # hard contrast: background = '#1d2021'
+    background: '#282828'
+    # soft contrast: background = '#32302f'
+    foreground: '#ebdbb2'
+
+  # Normal colors
+  normal:
+    black:   '#282828'
+    red:     '#cc241d'
+    green:   '#98971a'
+    yellow:  '#d79921'
+    blue:    '#458588'
+    magenta: '#b16286'
+    cyan:    '#689d6a'
+    white:   '#a89984'
+
+  # Bright colors
+  bright:
+    black:   '#928374'
+    red:     '#fb4934'
+    green:   '#b8bb26'
+    yellow:  '#fabd2f'
+    blue:    '#83a598'
+    magenta: '#d3869b'
+    cyan:    '#8ec07c'
+    white:   '#ebdbb2'
 
   # Cursor colors
   #

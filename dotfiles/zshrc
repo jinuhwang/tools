@@ -154,5 +154,7 @@ load-nvmrc() {
     nvm use default
   fi
 }
-add-zsh-hook chpwd load-nvmrc
+# This slows down the shell sometimes
+# add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+fpath+=${ZDOTDIR:-~}/.zsh_functions

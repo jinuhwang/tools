@@ -13,7 +13,8 @@ font xft:URWGothic-Book 11
 
 floating_modifier $mod
 
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec alacritty
 
 # Window kill command
 bindsym $mod+Shift+q kill
@@ -228,10 +229,10 @@ client.placeholder #56737a #1e1e20 #56737a #2c5159 #2c5159
 client.background #1e1e20
 
 # Gaps
-gaps inner 10
-gaps outer -4
+# gaps inner 10
+# gaps outer -4
 
-smart_gaps on
+# smart_gaps on
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner

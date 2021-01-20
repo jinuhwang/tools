@@ -1,0 +1,6 @@
+[submodule "third_parties/bat"]
+	path = third_parties/bat
+	url = https://github.com/sharkdp/bat
+[submodule "third_parties/alacritty"]
+	path = third_parties/alacritty
+	url = https://github.com/alacritty/alacritty
