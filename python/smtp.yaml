@@ -1,0 +1,47 @@
+# One must change the SMTP setting in mail.kaist.ac.kr
+#
+id: jinwooh
+passwd: passwd
+csv: ~/S4AI/students.csv
+from: jinwooh@kaist.ac.kr
+
+# Column that hold the email address of students
+to_columns: email
+
+# Columns to be used for content formatting, provide string ordering
+format_columns:
+    - userid
+    - teammate
+    - teammate_email
+    - userid
+    - pw
+
+subject: >
+    [CS330] Extra Server Account Info
+
+content: |
+    Hi, this is your CS330 TA,
+    The following is your team's account information to the extra server.
+    Note that you will get penalty if you access the server without reserving a time slot.
+    Please refer to the Piazza note @572 for detail
+    https://piazza.com/class/k7ov1jagacl3j3?cid=572
+    Team number: {0}
+    Teammate: {1} {2}
+    Server IP: To be announced via Piazza
+    Server Port: To be announced via Piazza
+    User ID: {3}
+    Initial Password: {4}
+
+    Same as before,
+    You should use KVPN when accessing the server from outside campus.
+    You should login using user ID instead of root.
+    If you encounter any problem, please contact via cs330_ta@casys.kaist.ac.kr
+
+    Regards,
+    Jinwoo Hwang
+
+    
+
+
+
+
