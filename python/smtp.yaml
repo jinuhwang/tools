@@ -6,15 +6,12 @@ csv: ~/S4AI/students.csv
 from: jinwooh@kaist.ac.kr
 
 # Column that hold the email address of students
-to_columns: email
+to_columns: 이메일
 
 # Columns to be used for content formatting, provide string ordering
 format_columns:
-    - userid
-    - teammate
-    - teammate_email
-    - userid
-    - pw
+    - username
+    - password
 
 subject: >
     [CS330] Extra Server Account Info
@@ -25,12 +22,10 @@ content: |
     Note that you will get penalty if you access the server without reserving a time slot.
     Please refer to the Piazza note @572 for detail
     https://piazza.com/class/k7ov1jagacl3j3?cid=572
-    Team number: {0}
-    Teammate: {1} {2}
     Server IP: To be announced via Piazza
     Server Port: To be announced via Piazza
-    User ID: {3}
-    Initial Password: {4}
+    User ID: {0}
+    Initial Password: {1}
 
     Same as before,
     You should use KVPN when accessing the server from outside campus.
