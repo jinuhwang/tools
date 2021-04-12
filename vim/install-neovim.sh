@@ -1,18 +1,21 @@
 #!/bin/bash
 
-sudo apt update
-sudo apt install snapd
-sudo snap install --edge nvim --classic
-sudo ln -s -f /snap/bin/nvim /usr/bin/nvim 
+# ./nvim.appimage --appimage-extract
+if [ ! -d "$HOME/bin" ]; then
+    mkdir -p ~/bin
+fi
+cd ~/bin
+curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -o nvim
+chmod u+x nvim
 
+# Optional: exposing nvim globally
+# mv squashfs-root ~/bin && sudo ln -f -s ~/bin/squashfs-root/AppRun /usr/bin/nvim
 
 if [ ! -d "$HOME/.config/nvim" ]
     mkdir -p $HOME/.config/nvim
 fi
 
-# ln -s -f $HOME/.vimrc $HOME/.config/nvim/init.vim
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+./install-nvim-plug.sh
 
 sudo npm install -g neovim
 gem install neovim
