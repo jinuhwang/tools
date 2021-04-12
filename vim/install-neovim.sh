@@ -22,7 +22,10 @@ sh ${DIR}/install-nvim-plug.sh
 
 nvim +PlugInstall +qa
 
-# npm install -g neovim
+ln -s -f $DIR/../dotfiles/init.vim $HOME/.config/nvim/init.vim
+nvim +PlugInstall
+
+# sudo npm install -g neovim
 # gem install neovim
 # python3 -m pip install --user --upgrade pynvim
 
