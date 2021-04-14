@@ -1,23 +1,28 @@
 #!/bin/bash
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 # ./nvim.appimage --appimage-extract
 if [ ! -d "$HOME/bin" ]; then
     mkdir -p ~/bin
 fi
 cd ~/bin
-curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -o nvim
-chmod u+x nvim
+curl -SLO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+chmod u+x nvim.appimage
+nvim.appimage --appimage-extract
+rm nvim.appimage
+mv squashfs-root nvim.squashfs-root
+ln -s -f nvim.squashfs-root/AppRun nvim
 
-# Optional: exposing nvim globally
-# mv squashfs-root ~/bin && sudo ln -f -s ~/bin/squashfs-root/AppRun /usr/bin/nvim
-
-if [ ! -d "$HOME/.config/nvim" ]
+if [ ! -d "$HOME/.config/nvim" ]; then
     mkdir -p $HOME/.config/nvim
 fi
 
-./install-nvim-plug.sh
+sh ${DIR}/install-nvim-plug.sh
 
-sudo npm install -g neovim
-gem install neovim
-python3 -m pip install --user --upgrade pynvim
+nvim +PlugInstall +qa
+
+# npm install -g neovim
+# gem install neovim
+# python3 -m pip install --user --upgrade pynvim
 
