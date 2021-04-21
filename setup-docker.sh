@@ -33,7 +33,7 @@ nvm install 'lts/*'
 nvm use 'lts/*'
 
 # Install neovim
-./vim/install-neovim.sh
+./vim/install-nvim.sh
 
 ./dotfiles/copy_dotfiles.sh
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k

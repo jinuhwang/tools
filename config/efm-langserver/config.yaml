@@ -1,0 +1,81 @@
+version: 2
+root-markers:
+  - .git/
+
+tools:
+  make-checkmake: &make-checkmake
+    lint-command: 'checkmake'
+    lint-stdin: true
+
+  markdown-markdownlint: &markdown-markdownlint
+    lint-command: 'markdownlint -s -c %USERPROFILE%\.markdownlintrc'
+    lint-stdin: true
+    lint-formats:
+      - '%f:%l %m'
+      - '%f:%l:%c %m'
+      - '%f: %l: %m'
+
+  markdown-pandoc: &markdown-pandoc
+    format-command: 'pandoc -f markdown -t gfm -sp --tab-stop=2'
+
+  yaml-yamllint: &yaml-yamllint
+    lint-command: 'yamllint -f parsable -'
+    lint-stdin: true
+
+  python-flake8: &python-flake8
+    lint-command: 'flake8 --stdin-display-name ${INPUT} -'
+    lint-stdin: true
+    lint-formats:
+      - '%f:%l:%c: %m'
+
+  python-black: &python-black
+    format-command: 'black --quiet -'
+    format-stdin: true
+
+  python-autopep8: &python-autopep8
+    format-command: 'autopep8 -'
+    format-stdin: true
+
+  dockerfile-hadolint: &dockerfile-hadolint
+    lint-command: 'hadolint'
+    lint-formats:
+      - '%f:%l %m'
+
+  sh-shellcheck: &sh-shellcheck
+    lint-command: 'shellcheck -f gcc -x'
+    lint-source: 'shellcheck'
+    lint-formats:
+      - '%f:%l:%c: %trror: %m'
+      - '%f:%l:%c: %tarning: %m'
+      - '%f:%l:%c: %tote: %m'
+
+  sh-shfmt: &sh-shfmt
+    format-command: 'shfmt -ci -s -bn'
+    format-stdin: true
+
+languages:
+  make:
+    - <<: *make-checkmake
+
+  markdown:
+    - <<: *markdown-markdownlint
+    - <<: *markdown-pandoc
+
+  yaml:
+    - <<: *yaml-yamllint
+
+  python:
+    - <<: *python-flake8
+    - <<: *python-black
+    # - <<: *python-mypy
+    # - <<: *python-autopep8
+    # - <<: *python-yapf
+    # - <<: *python-isort
+
+  dockerfile:
+    - <<: *dockerfile-hadolint
+
+  sh:
+    - <<: *sh-shellcheck
+    - <<: *sh-shfmt
+

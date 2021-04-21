@@ -6,7 +6,7 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
-set nowrap
+" set nowrap
 set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
@@ -39,5 +39,6 @@ nnoremap <silent> <c-l> :call Focus('right', 'l')<CR>
 nnoremap <silent> <c-h> :call Focus('left', 'h')<CR>
 nnoremap <silent> <c-k> :call Focus('up', 'k')<CR>
 nnoremap <silent> <c-j> :call Focus('down', 'j')<CR>
+nnoremap <leader><space> :noh<CR>
 
 autocmd VimResized * :wincmd =
