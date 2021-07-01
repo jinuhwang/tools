@@ -6,8 +6,10 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 lua << EOF
 local lspconfig = require'lspconfig'
 local configs = require'lspconfig/configs'
-lspconfig.pyright.setup{}
+-- lspconfig.pyright.setup{}
 lspconfig.clangd.setup{}
+
+lspconfig.jedi_language_server.setup{}
 
 -- vim.lsp.handlers["textDocument/formatting"] = function(err, _, result, _, bufnr)
 --     if err ~= nil or result == nil then

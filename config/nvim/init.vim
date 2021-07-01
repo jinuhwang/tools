@@ -24,7 +24,7 @@ Plug 'rust-lang/rust.vim'
 " Plug 'junegunn/gv.vim'
 " Plug 'vim-utils/vim-man'
 " Plug 'mbbill/undotree'
-Plug 'vuciv/vim-bujo'
+" Plug 'vuciv/vim-bujo'
 " Plug 'tpope/vim-dispatch'
 " Plug 'theprimeagen/vim-be-good'
 " Plug '/home/theprimeagen/personal/af-pluth-pluth'
@@ -101,8 +101,8 @@ nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
 " vim TODO
-nmap <Leader>tu <Plug>BujoChecknormal
-nmap <Leader>th <Plug>BujoAddnormal
+nmap <Leader>tk <Plug>BujoAddnormal
+nmap <Leader>tj <Plug>BujoChecknormal
 let g:bujo#todo_file_path = $HOME . "/.cache/bujo"
 
 nnoremap <c-f> :NERDTreeFind<CR>
