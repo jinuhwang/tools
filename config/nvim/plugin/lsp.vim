@@ -1,6 +1,5 @@
 " Do this in lua?? maybe...
 " vim.o is short for something teej thinks makes sense.
-set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 lua << EOF
@@ -10,6 +9,10 @@ local configs = require'lspconfig/configs'
 lspconfig.clangd.setup{}
 
 lspconfig.jedi_language_server.setup{}
+lspconfig.rust_analyzer.setup{
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+
 
 -- vim.lsp.handlers["textDocument/formatting"] = function(err, _, result, _, bufnr)
 --     if err ~= nil or result == nil then
@@ -43,7 +46,6 @@ lspconfig.efm.setup{
 }
 EOF
 
-autocmd BufEnter * lua require'completion'.on_attach()
 autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
@@ -67,7 +69,3 @@ nnoremap <leader>vca :lua vim.lsp.buf.code_action()<CR>
 nnoremap <leader>vsd :lua vim.lsp.util.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>
 nnoremap <leader>vll :call LspLocationList()<CR>
 
-augroup THE_PRIMEAGEN_LSP
-    autocmd!
-    autocmd! BufWrite,BufEnter,InsertLeave * :call LspLocationList()
-augroup END
