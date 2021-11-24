@@ -13,3 +13,19 @@ chmod u+x nvim.appimage
 ./nvim.appimage --appimage-extract
 mv squashfs-root nvim.squashfs
 ln -s -f nvim.squashfs/AppRun nvim
+<<<<<<< HEAD
+=======
+
+if [ ! -d "$HOME/.config/nvim" ]; then
+    mkdir -p $HOME/.config/nvim
+fi
+
+${DIR}/install-nvim-plug.sh
+
+~/bin/nvim +PlugInstall +qall
+
+# sudo npm install -g neovim
+# gem install neovim
+# python3 -m pip install --user --upgrade pynvim
+
+>>>>>>> 1d69f46 (Fix nvim installation script)

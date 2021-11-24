@@ -18,6 +18,8 @@ apt update && apt install -y --upgrade \
     tree \
     vim \
     curl \
+    htop \
+    less \
     software-properties-common
 
 
@@ -25,9 +27,18 @@ apt update && apt install -y --upgrade \
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 sh -c "$(curl -fsSL https://starship.rs/install.sh) -y"
 
+# Install Node
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# nvm install 'lts/*'
+# nvm use 'lts/*'
+
+./dotfiles/copy_dotfiles.sh
+
 # Install neovim
 ./vim/install-nvim.sh
-./dotfiles/copy_dotfiles.sh
 
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
