@@ -1,4 +1,4 @@
-# xrandr --output DP-0  --auto --output DP-2 --auto --panning 1354x2408+0+0 --rotate left --scale 0.627x0.627 
+# xrandr --output DP-0  --auto --output DP-2 --auto --panning 1354x2408+0+0 --rotate left --scale 0.627x0.627
 # xrandr \
 #     --output DP-0  --primary --pos 1354x0 --mode 3840x2160 --fb 5194x2408 --panning 0x0+0+0 \
 #     --output DP-2  --rotate left --scale 0.627x0.627 --pos 0x0 --panning 0x0+0+0 --fb 5194x2408
@@ -14,9 +14,15 @@
 #     --output DP-0 --auto --pos 1354x0 --primary
 
 xrandr \
-    --output DP-0 --off \
-    --output DP-2 --auto --noprimary --scale 0.627x0.627 --rotate left  --panning 1354x2408+0+0 \
-    --fb 5194x2408
+    --output HDMI-0 --auto --noprimary --scale 1.144x1.144 --pos 0x0 --panning 2196x1236+0+0 \
+    --output DP-0 --auto --primary --pos 2196x0 --panning 3840x1600+2196+0 \
+    --output DP-2 --auto --noprimary --scale 1.164x1.164 --rotate right --pos 6036x0 # --panning 3840x1600+2196+0 -
 
-xrandr \
-    --output DP-0 --auto --primary --pos 1354x0 --panning 3840x2160+1354+0
+# xrandr \
+#     --output DP-0 --auto --primary --pos 2196x0 --panning 3840x1600+2196+0
+
+# xrandr \
+#     --output DP-2 --auto --noprimary --scale 1.164x1.164 --rotate right --pos 6036x0 # --panning 3840x1600+2196+0 -
+    # --output HDMI-0 --auto --noprimary --scale 0.627x0.627 --rotate left  --panning 1354x2408+0+0 \
+    # --fb 5194x2408
+

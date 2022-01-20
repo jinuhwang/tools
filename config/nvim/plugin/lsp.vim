@@ -7,7 +7,6 @@ local lspconfig = require'lspconfig'
 local configs = require'lspconfig/configs'
 -- lspconfig.pyright.setup{}
 lspconfig.clangd.setup{}
-
 lspconfig.jedi_language_server.setup{}
 lspconfig.rust_analyzer.setup{
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -69,3 +68,4 @@ nnoremap <leader>vca :lua vim.lsp.buf.code_action()<CR>
 nnoremap <leader>vsd :lua vim.lsp.util.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>
 nnoremap <leader>vll :call LspLocationList()<CR>
 
+autocmd BufWritePre *.rs RustFmt
