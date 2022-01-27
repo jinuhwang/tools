@@ -7,9 +7,12 @@ ln -s -f $DIR/tmux.conf $HOME/.tmux.conf
 ln -s -f $DIR/gitconfig $HOME/.gitconfig
 ln -s -f $DIR/alacritty $HOME/.alacritty
 
-rm -rf $DIR/config/nvim
+if [ ! -d ~/.config ]; then
+    mkdir ~/.config
+fi
+rm -rf $HOME/.config/nvim
 ln -s -f $DIR/config/nvim $HOME/.config/nvim
-rm -rf $DIR/config/efm-langserver
+rm -rf $HOME/.config/efm-langserver
 ln -s -f $DIR/config/efm-langserver $HOME/.config/efm-langserver
-rm -rf $DIR/config/qtile
+rm -rf $HOME/.config/qtile
 ln -s -f $DIR/config/qtile $HOME/.config/qtile
