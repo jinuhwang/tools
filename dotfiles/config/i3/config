@@ -14,7 +14,7 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # bindsym $mod+Return exec i3-sensible-terminal
-# bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec alacritty
 
 # Window kill command
 bindsym $mod+Shift+q kill
@@ -290,7 +290,7 @@ bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'm
 
 # focus_follows_mouse yes
 
-bindsym $mod+t exec --no-startup-id /opt/google/chrome/google-chrome --profile-directory=Default --app-id=clhhggbfdinjmjhajaheehoeibfljjno
+bindsym $mod+t exec --no-startup-id telegram
 
 bindsym --release $mod+h exec --no-startup-id "i3-vim-nav h"
 bindsym --release $mod+j exec --no-startup-id "i3-vim-nav j"
@@ -298,6 +298,6 @@ bindsym --release $mod+k exec --no-startup-id "i3-vim-nav k"
 bindsym --release $mod+l exec --no-startup-id "i3-vim-nav l"
 
 # Add following and launch chrome with --password-store=gnome flag
-bindsym $mod+c exec --no-startup-id /opt/google/chrome/google-chrome --password-store=gnome --force-dark-mode --enable-features=WebUIDarkMode
+bindsym $mod+c exec --no-startup-id brave-browser --password-store=gnome --force-dark-mode --enable-features=WebUIDarkMode
 
 
