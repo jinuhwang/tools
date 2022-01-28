@@ -25,7 +25,7 @@ apt update && apt install -y --upgrade \
 
 # Download OMZ and starship
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
-sh -c "$(curl -fsSL https://starship.rs/install.sh) -y -p unknown-linux-musl"
+PLATFORM="" sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y
 
 # Install Node
 # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
