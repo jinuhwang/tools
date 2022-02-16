@@ -1,4 +1,3 @@
-language en_US.UTF-8
 set path+=**
 set wildmenu
 
