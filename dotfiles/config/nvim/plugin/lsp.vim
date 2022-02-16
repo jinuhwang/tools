@@ -12,6 +12,8 @@ lspconfig.rust_analyzer.setup{
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
 
+lspconfig.gdscript.setup{}
+
 
 -- vim.lsp.handlers["textDocument/formatting"] = function(err, _, result, _, bufnr)
 --     if err ~= nil or result == nil then
