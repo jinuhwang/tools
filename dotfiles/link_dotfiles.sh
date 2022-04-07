@@ -12,7 +12,9 @@ if [ ! -d ~/.config ]; then
 fi
 rm -rf $HOME/.config/nvim
 ln -s -f $DIR/config/nvim $HOME/.config/nvim
+
 rm -rf $HOME/.config/efm-langserver
 ln -s -f $DIR/config/efm-langserver $HOME/.config/efm-langserver
-rm -rf $HOME/.config/qtile
-ln -s -f $DIR/config/qtile $HOME/.config/qtile
+
+rm -rf $HOME/.config/helix
+ln -s -f $DIR/config/helix $HOME/.config/helix

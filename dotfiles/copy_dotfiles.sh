@@ -14,3 +14,5 @@ rm -rf $HOME/.config/nvim
 cp -r $DIR/config/nvim $HOME/.config/nvim
 rm -rf $HOME/.config/efm-langserver
 cp -r $DIR/config/efm-langserver $HOME/.config/efm-langserver
+rm -rf $HOME/.config/helix
+cp -r $DIR/config/helix $HOME/.config/helix

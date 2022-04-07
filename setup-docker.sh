@@ -46,4 +46,5 @@ yes | ~/.fzf/install
 
 # Install rust and its tools
 ./rust/install-rust.sh
+./rust/install-helix.sh
 ./rust/install-tools.sh

@@ -4,3 +4,4 @@
 ccls/
 **/__pycache__/
 cmake-*/
+helix
