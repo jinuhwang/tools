@@ -1,0 +1,11 @@
+theme = "monokai_pro_machine"
+
+[editor]
+line-number = "relative"
+mouse = true
+
+[keys.insert]
+j = { k = "normal_mode" }
+
+[keys.normal]
+"space" = { "space" = "file_picker" }
