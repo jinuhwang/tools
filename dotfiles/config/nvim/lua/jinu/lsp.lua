@@ -89,13 +89,13 @@ require("lspconfig").rust_analyzer.setup(config({
     }
     --]]
 }))
-require("lspconfig").efm.setup(config({
-    filetypes = {'python', 'yaml', 'markdown'},
-    init_options = {documentFormatting = true},
-    settings = {
-        rootMarkers = {".git/"},
-    }
-}))
+-- require("lspconfig").efm.setup(config({
+--     filetypes = {'python', 'yaml', 'markdown'},
+--     init_options = {documentFormatting = true},
+--     settings = {
+--         rootMarkers = {".git/"},
+--     }
+-- }))
 
 local opts = {
 	-- whether to highlight the currently hovered symbol
