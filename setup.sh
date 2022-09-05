@@ -27,10 +27,9 @@ sudo apt install -y --upgrade
 ./vim/install-nvim-plug.sh
 nvim +PlugInstall +qall
 
-# Download OMZ and starship
+# Download OMZ
 sudo apt install -y --upgrade zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
-sh -c "$(curl -fsSL https://starship.rs/install.sh) -y"
 
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
