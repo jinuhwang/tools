@@ -22,10 +22,15 @@ apt update && apt install -y --upgrade \
     less \
     software-properties-common
 
+./dotfiles/copy_dotfiles.sh
 
-# Download OMZ and starship
+# Install neovim
+./vim/install-nvim.sh
+./vim/install-nvim-plug.sh
+nvim +PlugInstall +qall
+
+# Download OMZ
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
-PLATFORM="" sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y
 
 # Install Node
 # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
@@ -35,16 +40,11 @@ PLATFORM="" sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y
 # nvm install 'lts/*'
 # nvm use 'lts/*'
 
-./dotfiles/copy_dotfiles.sh
-
-# Install neovim
-./vim/install-nvim.sh
-
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 yes | ~/.fzf/install
 
 # Install rust and its tools
-./rust/install-rust.sh
-./rust/install-helix.sh
-./rust/install-tools.sh
+# ./rust/install-rust.sh
+# ./rust/install-helix.sh
+# ./rust/install-tools.sh

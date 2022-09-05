@@ -17,6 +17,7 @@ sudo apt install -y --upgrade
     tmux \
     tree \
     curl \
+    zsh \
     software-properties-common
 
 # Link dotfiles
@@ -28,7 +29,6 @@ sudo apt install -y --upgrade
 nvim +PlugInstall +qall
 
 # Download OMZ
-sudo apt install -y --upgrade zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 
 # Install fzf
