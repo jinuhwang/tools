@@ -20,7 +20,11 @@ apt update && apt install -y --upgrade \
     curl \
     htop \
     less \
-    software-properties-common
+    software-properties-common \
+    zip
+
+# Download OMZ
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 
 ./dotfiles/copy_dotfiles.sh
 
@@ -28,9 +32,6 @@ apt update && apt install -y --upgrade \
 ./vim/install-nvim.sh
 ./vim/install-nvim-plug.sh
 nvim +PlugInstall +qall
-
-# Download OMZ
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 
 # Install Node
 # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
