@@ -206,16 +206,19 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Autostart applications
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id nm-applet
 # exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
-exec --no-startup-id synergys -a 143.248.138.130 --enable-crypto --restart
+# exec --no-startup-id synergys -a 143.248.138.130 --enable-crypto --restart
+exec --no-startup-id xmodmpa $HOME/settings/tools/dotfiles/Xmodmap
+
+exec_always --no-startup-id $HOME/settings/tools/ubuntu/xrandr.sh
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
+exec_always --no-startup-id find $HOME/settings/wallpapers -name "*.jpg" -type f | shuf -n 1 | xargs nitrogen --set-scaled &
+
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id xmodmap ~/.Xmodmap
 exec_always --no-startup-id xset -dpms
 exec_always --no-startup-id xset s off
 

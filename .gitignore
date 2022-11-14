@@ -4,4 +4,4 @@
 ccls/
 **/__pycache__/
 cmake-*/
-**/helix/runtime/
+**/helix/runtime
