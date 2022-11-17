@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -x
+set -e
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
@@ -11,14 +12,15 @@ fi
 
 # Install packages
 sudo apt update
-sudo apt install -y --upgrade
+sudo apt install -y --upgrade \
     build-essential \
     wget \
     tmux \
     tree \
     curl \
+    software-properties-common \
     zsh \
-    software-properties-common
+    zip
 
 # Link dotfiles
 ./dotfiles/link_dotfiles.sh
@@ -26,7 +28,7 @@ sudo apt install -y --upgrade
 # Install neovim
 ./vim/install-nvim.sh
 ./vim/install-nvim-plug.sh
-nvim +PlugInstall +qall
+~/bin/nvim +PlugInstall +qall
 
 # Download OMZ
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
