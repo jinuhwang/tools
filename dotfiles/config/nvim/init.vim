@@ -13,7 +13,7 @@ set wildignore+=**/android/*
 set wildignore+=**/ios/*
 set wildignore+=**/.git/*
 
-source plug.vim
+source ~/.config/nvim/plug.vim
 
 " Adding local modules
 " let &runtimepath.=',' . expand("$HOME") . '/personal/nvim-treesitter-context'
