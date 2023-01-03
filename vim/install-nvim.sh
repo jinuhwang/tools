@@ -16,4 +16,4 @@ mv squashfs-root nvim.squashfs
 ln -s -f nvim.squashfs/AppRun nvim
 ${DIR}/install-nvim-plug.sh
 
-yes | ~/bin/nvim +PlugInstall +qall
+~/bin/nvim -u ~/.config/nvim/plug.vim +PlugInstall +qall
