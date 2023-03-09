@@ -20,7 +20,8 @@ sudo apt install -y --upgrade \
     curl \
     software-properties-common \
     zsh \
-    zip
+    zip \
+    ripgrep
 
 # Link dotfiles
 ./dotfiles/link_dotfiles.sh

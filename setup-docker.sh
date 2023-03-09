@@ -21,7 +21,8 @@ apt update && apt install -y --upgrade \
     htop \
     less \
     software-properties-common \
-    zip
+    zip \
+    ripgrep
 
 # Download OMZ
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
