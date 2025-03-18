@@ -46,6 +46,10 @@ nvim +PlugInstall +qall
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 yes | ~/.fzf/install
 
+# Install plugin
+git clone https://github.com/tom-auger/cmdtime ~/.oh-my-zsh/custom/plugins/cmdtime
+
+
 # Install rust and its tools
 # ./rust/install-rust.sh
 # ./rust/install-helix.sh
