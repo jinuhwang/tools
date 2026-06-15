@@ -11,6 +11,7 @@ cd ~/bin
 curl -sSLO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 chmod u+x nvim.appimage
 ./nvim.appimage --appimage-extract
+rm -rf nvim.squashfs
 mv squashfs-root nvim.squashfs
 
 ln -s -f nvim.squashfs/AppRun nvim
