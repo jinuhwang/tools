@@ -26,5 +26,9 @@ curl -sS https://starship.rs/install.sh | sh -s -- --yes
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
 
+# Install uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
+mkdir -p ~/.zfunc && uv generate-shell-completion zsh > ~/.zfunc/_uv
+
 # Change default shell to zsh
 chsh -s /usr/bin/zsh
