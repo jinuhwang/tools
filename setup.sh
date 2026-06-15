@@ -28,8 +28,6 @@ sudo apt install -y --upgrade \
 
 # Install neovim
 ./vim/install-nvim.sh
-./vim/install-nvim-plug.sh
-~/bin/nvim +PlugInstall +qall
 
 # Download OMZ
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"

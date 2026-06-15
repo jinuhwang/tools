@@ -14,6 +14,3 @@ chmod u+x nvim.appimage
 mv squashfs-root nvim.squashfs
 
 ln -s -f nvim.squashfs/AppRun nvim
-${DIR}/install-nvim-plug.sh
-
-~/bin/nvim -u ~/.config/nvim/plug.vim +PlugInstall +qall

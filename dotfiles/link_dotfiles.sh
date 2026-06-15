@@ -5,7 +5,6 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 ln -s -f $DIR/zshrc $HOME/.zshrc
 ln -s -f $DIR/tmux.conf $HOME/.tmux.conf
 ln -s -f $DIR/gitconfig $HOME/.gitconfig
-ln -s -f $DIR/alacritty $HOME/.alacritty
 
 if [ ! -d ~/.config ]; then
     mkdir ~/.config
@@ -16,5 +15,5 @@ ln -s -f $DIR/config/nvim $HOME/.config/nvim
 rm -rf $HOME/.config/efm-langserver
 ln -s -f $DIR/config/efm-langserver $HOME/.config/efm-langserver
 
-rm -rf $HOME/.config/helix
-ln -s -f $DIR/config/helix $HOME/.config/helix
+rm -rf $HOME/.config/i3
+ln -s -f $DIR/config/i3 $HOME/.config/i3
