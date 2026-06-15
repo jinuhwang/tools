@@ -14,6 +14,9 @@ sudo apt install -y zsh curl git tmux ripgrep
 # Link dotfiles
 "$DIR/dotfiles/link_dotfiles.sh"
 
+# Link tools
+"$DIR/bin/link.sh"
+
 # Install or update Oh My Zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
