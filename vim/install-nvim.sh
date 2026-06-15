@@ -18,8 +18,8 @@ else
     esac
 
     cd ~/bin
-    curl -sSLO "https://github.com/neovim/neovim/releases/download/nightly/$TARBALL"
     rm -rf nvim-linux-*
+    curl -sSLO "https://github.com/neovim/neovim/releases/download/nightly/$TARBALL"
     tar xzf "$TARBALL"
     rm -f "$TARBALL"
     ln -sf "${TARBALL%.tar.gz}/bin/nvim" ~/bin/nvim
