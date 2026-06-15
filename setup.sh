@@ -40,7 +40,7 @@ fi
 
 # Install or update uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
-uv generate-shell-completion zsh > ~/.zfunc/_uv
+~/.local/bin/uv generate-shell-completion zsh > ~/.zfunc/_uv
 
 # Change default shell to zsh
 chsh -s /usr/bin/zsh
