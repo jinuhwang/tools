@@ -16,9 +16,15 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
-# Install Powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
-    "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+# Install starship
+curl -sS https://starship.rs/install.sh | sh -s -- --yes
+
+# Install neovim
+"$DIR/vim/install-nvim.sh"
+
+# Install fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --all
 
 # Change default shell to zsh
 chsh -s /usr/bin/zsh

@@ -6,9 +6,9 @@ ln -s -f $DIR/zshrc $HOME/.zshrc
 ln -s -f $DIR/tmux.conf $HOME/.tmux.conf
 ln -s -f $DIR/gitconfig $HOME/.gitconfig
 
-if [ ! -d ~/.config ]; then
-    mkdir ~/.config
-fi
+mkdir -p ~/.config
+ln -sf $DIR/starship.toml $HOME/.config/starship.toml
+
 rm -rf $HOME/.config/nvim
 ln -s -f $DIR/config/nvim $HOME/.config/nvim
 
