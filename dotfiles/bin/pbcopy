@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Read stdin, base64 encode it, and send it to the terminal clipboard via OSC52.
+payload="$(base64 | tr -d '\r\n')"
+
+# Raw OSC52. With tmux set-clipboard on + Ms capability, tmux should forward this.
+printf '\033]52;c;%s\a' "$payload"

@@ -5,6 +5,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 ln -s -f $DIR/zshrc $HOME/.zshrc
 ln -s -f $DIR/tmux.conf $HOME/.tmux.conf
 ln -s -f $DIR/gitconfig $HOME/.gitconfig
+ln -s -f $DIR/bin/pbcopy $HOME/.local/bin/pbcopy
 
 mkdir -p ~/.config
 ln -sf $DIR/starship.toml $HOME/.config/starship.toml
