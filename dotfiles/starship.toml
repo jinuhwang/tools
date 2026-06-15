@@ -1,5 +1,9 @@
 # Minimal starship config — language version modules disabled for speed
 
+[cmd_duration]
+min_time = 2_000
+format = "[$duration]($style) "
+
 [nodejs]
 disabled = true
 
