@@ -1,0 +1,9 @@
+{
+  "id": "vim-imd",
+  "name": "Vim IMD",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "macOS only. Switches to ABC on leaving Vim insert mode and restores the previous input source on entering it, via the local imd daemon.",
+  "author": "local",
+  "isDesktopOnly": true
+}
